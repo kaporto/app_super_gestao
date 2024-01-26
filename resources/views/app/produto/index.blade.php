@@ -22,10 +22,13 @@
                 <table border="1" width='100%'>
                     <thead>
                         <tr>
-                            <th>Nome</th>
-                            <th>Peso</th>
+                            <th>Nome</th>                            
                             <th>Descrição</th>
+                            <th>Peso</th>
                             <th>Unidade ID</th>
+                            <th>Comprimento</th>
+                            <th>Altura</th>
+                            <th>Largura</th>
                             <th></th>
                             <th></th>
                             <th></th>
@@ -34,10 +37,13 @@
                     <tbody>
                         @foreach ($produtos as $produto)
                             <tr>
-                                <td>{{ $produto->nome }}</td>
-                                <td>{{ $produto->peso }}</td>
+                                <td>{{ $produto->nome }}</td>                                
                                 <td>{{ $produto->descricao }}</td>
+                                <td>{{ $produto->peso }} kg</td>
                                 <td>{{ $produto->unidade_id }}</td>
+                                <td>{{ $produto->produtoDetalhe->comprimento ?? '' }}</td>
+                                <td>{{ $produto->produtoDetalhe->largura ?? ''}}</td>
+                                <td>{{ $produto->produtoDetalhe->altura ?? ''}}</td>
                                 <td><a href="{{ route('produto.show', ['produto' => $produto->id])}}">Visualizar</a></td>
                                 <td><a href="{{ route('produto.edit', ['produto' => $produto->id])}}">Editar</a></td>
                                 <td>
