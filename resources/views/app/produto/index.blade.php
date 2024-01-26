@@ -18,12 +18,14 @@
         </div>
 
         <div class="informacao-pagina">
-            <div style="width: 90%; margin-left: auto; margin-right: auto;">
+            <div style="width: 90%; margin-left: auto; margin-right: auto;">                
                 <table border="1" width='100%'>
                     <thead>
                         <tr>
                             <th>Nome</th>                            
                             <th>Descrição</th>
+                            <th>Fornecedor</th>
+                            <th>Site do Fornecedor</th>
                             <th>Peso</th>
                             <th>Unidade ID</th>
                             <th>Comprimento</th>
@@ -39,11 +41,13 @@
                             <tr>
                                 <td>{{ $produto->nome }}</td>                                
                                 <td>{{ $produto->descricao }}</td>
+                                <td>{{ $produto->fornecedor->nome }}</td>
+                                <td>{{ $produto->fornecedor->site }}</td>
                                 <td>{{ $produto->peso }} kg</td>
                                 <td>{{ $produto->unidade_id }}</td>
-                                <td>{{ $produto->produtoDetalhe->comprimento ?? '' }}</td>
-                                <td>{{ $produto->produtoDetalhe->largura ?? ''}}</td>
-                                <td>{{ $produto->produtoDetalhe->altura ?? ''}}</td>
+                                <td>{{ $produto->itemDetalhe->comprimento ?? '' }}</td>
+                                <td>{{ $produto->itemDetalhe->largura ?? ''}}</td>
+                                <td>{{ $produto->itemDetalhe->altura ?? ''}}</td>
                                 <td><a href="{{ route('produto.show', ['produto' => $produto->id])}}">Visualizar</a></td>
                                 <td><a href="{{ route('produto.edit', ['produto' => $produto->id])}}">Editar</a></td>
                                 <td>
